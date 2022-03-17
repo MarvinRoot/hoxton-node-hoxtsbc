@@ -61,7 +61,7 @@ app.post('/sign-in',async ( req, res) => {
         if(user){ 
             const passwordMatches = bcrypt.compareSync(password, user.password)
             if(passwordMatches){
-                res.send({user, token: createToken(user.id)})
+                res.send({data: user, token: createToken(user.id)})
             }else{
                 throw Error("Please check credentials again")
             }
